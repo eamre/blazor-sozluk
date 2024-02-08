@@ -1,5 +1,7 @@
 ﻿using BlazorSozluk.Api.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,11 @@ namespace BlazorSozluk.Infrastructure.Persistence.Context
     {
         public const string DEFAULT_SCHEMA = "dbo";
 
+        public BlazorSozlukContext()
+        {
+                
+        }
+
         public BlazorSozlukContext(DbContextOptions options) : base(options)
         {
         }
@@ -25,6 +32,19 @@ namespace BlazorSozluk.Infrastructure.Persistence.Context
         public DbSet<EntryComment> EntryComments { get; set; }
         public DbSet<EntryCommentVote> EntryCommentVotes { get; set; }
         public DbSet<EntryCommentFavorite> EntryCommentFavorites { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                var connStr = "User ID=postgres;Password=sifre;Host=localhost;Port=5432;Database=BlazorSozluk;";
+                optionsBuilder.UseNpgsql(connStr, opt =>
+                {
+                    opt.MigrationsHistoryTable("__EFMigrationsHistory", "dbo");
+                    opt.EnableRetryOnFailure();
+                });
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -70,7 +90,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Context
             foreach (var entity in entities)
             {
                 if (entity.CreateDate == DateTime.MinValue)
-                    entity.CreateDate = DateTime.Now;
+                    entity.CreateDate = DateTime.UtcNow;
             }
         }
     }

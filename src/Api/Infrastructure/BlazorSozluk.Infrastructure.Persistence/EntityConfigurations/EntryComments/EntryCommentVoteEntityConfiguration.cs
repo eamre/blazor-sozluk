@@ -16,7 +16,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.EntityConfigurations.EntryComm
         {
             base.Configure(builder);
 
-            builder.ToTable("entrycommentfavorite", BlazorSozlukContext.DEFAULT_SCHEMA);
+            builder.ToTable("entrycommentvote", BlazorSozlukContext.DEFAULT_SCHEMA);
 
             builder.HasOne(ecv => ecv.EntryComment)
                 .WithMany(ec => ec.EntryCommentVotes)
