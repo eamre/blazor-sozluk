@@ -23,5 +23,20 @@ namespace BlazorSozluk.Api.WebApi.Controllers
             var result = await _mediator.Send(loginUserCommand);
             return Ok(result);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateUserCommand createUserCommand)
+        {
+            var result = await _mediator.Send(createUserCommand);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("Update")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand updateUserCommand)
+        {
+            var result = await _mediator.Send(updateUserCommand);
+            return Ok(updateUserCommand);
+        }
     }
 }
