@@ -37,7 +37,7 @@ namespace BlazorSozluk.Api.Application.Features.Commands.Users.Update
            
             var user = await userRepository.UpdateAsync(dbUser);
 
-            //checkf if email changed
+            //check if email changed
 
             if (emailChanged && user > 0)
             {
