@@ -16,7 +16,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.EntityConfigurations.Entries
         {
             base.Configure(builder);
 
-            builder.ToTable("entryvote", BlazorSozlukContext.DEFAULT_SCHEMA);
+            builder.ToTable("entryvote");
 
             builder.HasOne(ev => ev.Entry)
                 .WithMany(e => e.EntryVotes)

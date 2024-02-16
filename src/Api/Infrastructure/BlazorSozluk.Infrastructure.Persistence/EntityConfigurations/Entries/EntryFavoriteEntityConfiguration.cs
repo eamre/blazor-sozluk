@@ -16,7 +16,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.EntityConfigurations.Entries
         {
             base.Configure(builder);
 
-            builder.ToTable("entryfavorite", BlazorSozlukContext.DEFAULT_SCHEMA);
+            builder.ToTable("entryfavorite");
 
             builder.HasOne(ef => ef.Entry)
                 .WithMany(e => e.EntryFavorites)

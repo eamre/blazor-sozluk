@@ -42,7 +42,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("emailconfirmation", "dbo");
+                    b.ToTable("emailconfirmation", (string)null);
                 });
 
             modelBuilder.Entity("BlazorSozluk.Api.Domain.Models.Entry", b =>
@@ -70,7 +70,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("CreatedById");
 
-                    b.ToTable("entry", "dbo");
+                    b.ToTable("entry", (string)null);
                 });
 
             modelBuilder.Entity("BlazorSozluk.Api.Domain.Models.EntryComment", b =>
@@ -99,7 +99,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryId");
 
-                    b.ToTable("entrycomment", "dbo");
+                    b.ToTable("entrycomment", (string)null);
                 });
 
             modelBuilder.Entity("BlazorSozluk.Api.Domain.Models.EntryCommentFavorite", b =>
@@ -124,7 +124,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryCommentId");
 
-                    b.ToTable("entrycommentfavorite", "dbo");
+                    b.ToTable("entrycommentfavorite", (string)null);
                 });
 
             modelBuilder.Entity("BlazorSozluk.Api.Domain.Models.EntryCommentVote", b =>
@@ -150,7 +150,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryCommentId");
 
-                    b.ToTable("entrycommentvote", "dbo");
+                    b.ToTable("entrycommentvote", (string)null);
                 });
 
             modelBuilder.Entity("BlazorSozluk.Api.Domain.Models.EntryFavorite", b =>
@@ -175,7 +175,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryId");
 
-                    b.ToTable("entryfavorite", "dbo");
+                    b.ToTable("entryfavorite", (string)null);
                 });
 
             modelBuilder.Entity("BlazorSozluk.Api.Domain.Models.EntryVote", b =>
@@ -201,7 +201,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryId");
 
-                    b.ToTable("entryvote", "dbo");
+                    b.ToTable("entryvote", (string)null);
                 });
 
             modelBuilder.Entity("BlazorSozluk.Api.Domain.Models.User", b =>
@@ -239,7 +239,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("user", "dbo");
+                    b.ToTable("user", (string)null);
                 });
 
             modelBuilder.Entity("BlazorSozluk.Api.Domain.Models.Entry", b =>

@@ -16,7 +16,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.EntityConfigurations
         {
             base.Configure(builder);
 
-            builder.ToTable("emailconfirmation", BlazorSozlukContext.DEFAULT_SCHEMA);
+            builder.ToTable("emailconfirmation");
         }
     }
 }

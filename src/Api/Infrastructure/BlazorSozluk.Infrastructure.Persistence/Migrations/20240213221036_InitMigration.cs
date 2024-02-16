@@ -9,12 +9,8 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.EnsureSchema(
-                name: "dbo");
-
             migrationBuilder.CreateTable(
                 name: "emailconfirmation",
-                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -29,7 +25,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
             migrationBuilder.CreateTable(
                 name: "user",
-                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -48,7 +43,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
             migrationBuilder.CreateTable(
                 name: "entry",
-                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -63,7 +57,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
                     table.ForeignKey(
                         name: "FK_entry_user_CreatedById",
                         column: x => x.CreatedById,
-                        principalSchema: "dbo",
                         principalTable: "user",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -71,7 +64,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
             migrationBuilder.CreateTable(
                 name: "entrycomment",
-                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -86,14 +78,12 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
                     table.ForeignKey(
                         name: "FK_entrycomment_entry_EntryId",
                         column: x => x.EntryId,
-                        principalSchema: "dbo",
                         principalTable: "entry",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_entrycomment_user_CreatedById",
                         column: x => x.CreatedById,
-                        principalSchema: "dbo",
                         principalTable: "user",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -101,7 +91,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
             migrationBuilder.CreateTable(
                 name: "entryfavorite",
-                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -115,14 +104,12 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
                     table.ForeignKey(
                         name: "FK_entryfavorite_entry_EntryId",
                         column: x => x.EntryId,
-                        principalSchema: "dbo",
                         principalTable: "entry",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_entryfavorite_user_CreatedById",
                         column: x => x.CreatedById,
-                        principalSchema: "dbo",
                         principalTable: "user",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -130,7 +117,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
             migrationBuilder.CreateTable(
                 name: "entryvote",
-                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -145,7 +131,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
                     table.ForeignKey(
                         name: "FK_entryvote_entry_EntryId",
                         column: x => x.EntryId,
-                        principalSchema: "dbo",
                         principalTable: "entry",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -153,7 +138,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
             migrationBuilder.CreateTable(
                 name: "entrycommentfavorite",
-                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -167,14 +151,12 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
                     table.ForeignKey(
                         name: "FK_entrycommentfavorite_entrycomment_EntryCommentId",
                         column: x => x.EntryCommentId,
-                        principalSchema: "dbo",
                         principalTable: "entrycomment",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_entrycommentfavorite_user_CreatedById",
                         column: x => x.CreatedById,
-                        principalSchema: "dbo",
                         principalTable: "user",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -182,7 +164,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
             migrationBuilder.CreateTable(
                 name: "entrycommentvote",
-                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -197,7 +178,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
                     table.ForeignKey(
                         name: "FK_entrycommentvote_entrycomment_EntryCommentId",
                         column: x => x.EntryCommentId,
-                        principalSchema: "dbo",
                         principalTable: "entrycomment",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -205,55 +185,46 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_entry_CreatedById",
-                schema: "dbo",
                 table: "entry",
                 column: "CreatedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_entrycomment_CreatedById",
-                schema: "dbo",
                 table: "entrycomment",
                 column: "CreatedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_entrycomment_EntryId",
-                schema: "dbo",
                 table: "entrycomment",
                 column: "EntryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_entrycommentfavorite_CreatedById",
-                schema: "dbo",
                 table: "entrycommentfavorite",
                 column: "CreatedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_entrycommentfavorite_EntryCommentId",
-                schema: "dbo",
                 table: "entrycommentfavorite",
                 column: "EntryCommentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_entrycommentvote_EntryCommentId",
-                schema: "dbo",
                 table: "entrycommentvote",
                 column: "EntryCommentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_entryfavorite_CreatedById",
-                schema: "dbo",
                 table: "entryfavorite",
                 column: "CreatedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_entryfavorite_EntryId",
-                schema: "dbo",
                 table: "entryfavorite",
                 column: "EntryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_entryvote_EntryId",
-                schema: "dbo",
                 table: "entryvote",
                 column: "EntryId");
         }
@@ -261,36 +232,28 @@ namespace BlazorSozluk.Infrastructure.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "emailconfirmation",
-                schema: "dbo");
+                name: "emailconfirmation");
 
             migrationBuilder.DropTable(
-                name: "entrycommentfavorite",
-                schema: "dbo");
+                name: "entrycommentfavorite");
 
             migrationBuilder.DropTable(
-                name: "entrycommentvote",
-                schema: "dbo");
+                name: "entrycommentvote");
 
             migrationBuilder.DropTable(
-                name: "entryfavorite",
-                schema: "dbo");
+                name: "entryfavorite");
 
             migrationBuilder.DropTable(
-                name: "entryvote",
-                schema: "dbo");
+                name: "entryvote");
 
             migrationBuilder.DropTable(
-                name: "entrycomment",
-                schema: "dbo");
+                name: "entrycomment");
 
             migrationBuilder.DropTable(
-                name: "entry",
-                schema: "dbo");
+                name: "entry");
 
             migrationBuilder.DropTable(
-                name: "user",
-                schema: "dbo");
+                name: "user");
         }
     }
 }

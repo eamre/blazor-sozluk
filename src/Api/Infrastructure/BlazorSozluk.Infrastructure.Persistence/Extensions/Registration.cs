@@ -21,7 +21,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Extensions
                 var connStr = configuration["BlazorSozlukDbConnectionString"].ToString();
                 options.UseNpgsql(connStr, opt =>
                 {
-                    opt.MigrationsHistoryTable("__EFMigrationsHistory", "dbo");
                     opt.EnableRetryOnFailure();
                 });
             });

@@ -13,8 +13,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Context
 {
     public class BlazorSozlukContext : DbContext
     {
-        public const string DEFAULT_SCHEMA = "dbo";
-
         public BlazorSozlukContext()
         {
                 
@@ -40,7 +38,6 @@ namespace BlazorSozluk.Infrastructure.Persistence.Context
                 var connStr = "User ID=postgres;Password=sifre;Host=localhost;Port=5432;Database=BlazorSozluk;";
                 optionsBuilder.UseNpgsql(connStr, opt =>
                 {
-                    opt.MigrationsHistoryTable("__EFMigrationsHistory", "dbo");
                     opt.EnableRetryOnFailure();
                 });
             }

@@ -16,7 +16,7 @@ namespace BlazorSozluk.Infrastructure.Persistence.EntityConfigurations
         {
             base.Configure(builder);
 
-            builder.ToTable("user", BlazorSozlukContext.DEFAULT_SCHEMA);
+            builder.ToTable("user");
         }
     }
 }
