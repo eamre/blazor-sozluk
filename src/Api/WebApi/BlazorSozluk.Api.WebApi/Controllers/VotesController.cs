@@ -1,8 +1,10 @@
 ﻿using BlazorSozluk.Api.Application.Features.Commands.Entry.DeleteVote;
 using BlazorSozluk.Api.Application.Features.Commands.EntryComment.DeleteVote;
+using BlazorSozluk.Common.Infrastructure.Exceptions;
 using BlazorSozluk.Common.Models;
 using BlazorSozluk.Common.Models.RequestModels;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

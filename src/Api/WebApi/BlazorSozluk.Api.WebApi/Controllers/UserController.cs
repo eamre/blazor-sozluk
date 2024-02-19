@@ -1,4 +1,5 @@
 ﻿using BlazorSozluk.Api.Application.Features.Commands.Users.ConfirmEmail;
+using BlazorSozluk.Api.Application.Features.Commands.Users.Login;
 using BlazorSozluk.Api.Application.Features.Queries.GetUserDetail;
 using BlazorSozluk.Common.Events.User;
 using BlazorSozluk.Common.Models.Queries;
@@ -6,11 +7,13 @@ using BlazorSozluk.Common.Models.RequestModels;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using FluentValidation.AspNetCore;
 
 namespace BlazorSozluk.Api.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class UserController : BaseController
     {
         private readonly IMediator _mediator;
