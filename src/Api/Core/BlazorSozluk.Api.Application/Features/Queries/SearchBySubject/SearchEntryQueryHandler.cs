@@ -21,7 +21,7 @@ namespace BlazorSozluk.Api.Application.Features.Queries.SearchBySubject
 
         public async Task<List<SearchEntryViewModel>> Handle(SearchEntryQuery request, CancellationToken cancellationToken)
         {
-            var result = entryRepository.Get(i => EF.Functions.Like(i.Subject, $"{request.SearchText}%"))
+            var result = entryRepository.Get(i => EF.Functions.ILike(i.Subject, $"{request.SearchText}%"))
                 .Select(i => new SearchEntryViewModel()
                 {
                     Id = i.Id,
