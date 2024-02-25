@@ -12,6 +12,8 @@ namespace BlazorSozluk.Api.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class VotesController : BaseController
     {
         private readonly IMediator _mediator;

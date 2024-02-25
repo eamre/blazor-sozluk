@@ -39,9 +39,23 @@
         }
     </div>
 
-    <div class="top-nav">
-        <input type="button" class="form-control btn-success btn-sozluk w-auto" value="Login" @onclick="@NavigateLoginPage" />
-    </div>
+    <AuthorizeView>
+
+        <Authorized>
+            <div class="top-nav">
+                <input type="button" class="form-control btn-success btn-sozluk w-auto" value="Create Entry" @onclick="@NavigateCreateEntryPage" />
+                <input type="button" class="form-control btn-success btn-sozluk w-auto" value="ME" @onclick="@NavigateMEPage" />
+                <input type="button" class="form-control btn-success btn-sozluk w-auto" value="Logout" @onclick="@NavigateLogoutPage" />
+            </div>
+        </Authorized>
+
+        <NotAuthorized>
+            <div class="top-nav">
+                <input type="button" class="form-control btn-success btn-sozluk w-auto" value="Login" @onclick="@NavigateLoginPage" />
+            </div>
+        </NotAuthorized>
+
+    </AuthorizeView>
 
     <div class="sub-nav">
         <a class="sub-nav-item active">bugün</a>

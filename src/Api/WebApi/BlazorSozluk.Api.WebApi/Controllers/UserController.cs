@@ -8,12 +8,12 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlazorSozluk.Api.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
     public class UserController : BaseController
     {
         private readonly IMediator _mediator;
@@ -47,6 +47,7 @@ namespace BlazorSozluk.Api.WebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create([FromBody] CreateUserCommand createUserCommand)
         {
             var result = await _mediator.Send(createUserCommand);
@@ -55,6 +56,7 @@ namespace BlazorSozluk.Api.WebApi.Controllers
 
         [HttpPost]
         [Route("Update")]
+        [Authorize]
         public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand updateUserCommand)
         {
             var result = await _mediator.Send(updateUserCommand);
@@ -71,6 +73,7 @@ namespace BlazorSozluk.Api.WebApi.Controllers
 
         [HttpPost]
         [Route("ChangePassword")]
+        [Authorize]
         public async Task<IActionResult> ChangePassword([FromBody] ChangeUserPasswordCommand command)
         {
             if (!command.UserId.HasValue)
