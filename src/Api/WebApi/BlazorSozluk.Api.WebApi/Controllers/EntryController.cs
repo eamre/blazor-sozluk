@@ -47,13 +47,12 @@ namespace BlazorSozluk.Api.WebApi.Controllers
 
         [HttpGet]
         [Route("UserEntries")]
-        [Authorize]
-        public async Task<IActionResult> GetUserEntries(string userName,Guid userId, int page, int pageSize)
+        public async Task<IActionResult> GetUserEntries(string? userName, Guid userId, int page, int pageSize)
         {
             if (userId == Guid.Empty && string.IsNullOrEmpty(userName))
                 userId = UserId.Value;
 
-            var result = await _mediator.Send(new GetUserEntriesQuery(userId, userName, page, pageSize));
+            var result = await _mediator.Send(new GetUserEntriesQuery(userId, page, pageSize, userName));
             return Ok(result);
         }
 

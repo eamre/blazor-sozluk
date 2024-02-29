@@ -12,7 +12,7 @@ namespace BlazorSozluk.WebApp.Infrastructure.Services.Interfaces
         Task<PagedViewModel<GetEntryCommentsViewModel>> GetEntryComments(Guid entryId, int page, int pageSize);
         Task<GetEntryDetailViewModel> GetEntryDetail(Guid entryId);
         Task<PagedViewModel<GetEntryDetailViewModel>> GetMainPageEntries(int page, int pageSize);
-        Task<PagedViewModel<GetUserEntriesDetailViewModel>> GetProfilePageEntries(int page, int pageSize, string userName = null);
+        Task<PagedViewModel<GetEntryDetailViewModel>> GetProfilePageEntries(int page, int pageSize, string userName = null);
         Task<List<SearchEntryViewModel>> SearchBySubject(string searchText);
     }
 }

@@ -32,7 +32,7 @@ namespace BlazorSozluk.WebApp.Infrastructure.Services
             return result;
         }
 
-        public async Task<bool> UpdateUser(UpdateUserCommand user)
+        public async Task<bool> UpdateUser(UserDetailViewModel user)
         {
             var result = await client.PostAsJsonAsync($"/api/user/update", user);
 

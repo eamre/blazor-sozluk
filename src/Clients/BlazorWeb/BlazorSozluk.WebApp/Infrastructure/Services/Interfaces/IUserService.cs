@@ -8,6 +8,6 @@ namespace BlazorSozluk.WebApp.Infrastructure.Services.Interfaces
         Task<bool> ChangeUserPassword(string oldPassword, string newPassword);
         Task<UserDetailViewModel> GetUserDetail(Guid? id);
         Task<UserDetailViewModel> GetUserDetail(string userName);
-        Task<bool> UpdateUser(UpdateUserCommand user);
+        Task<bool> UpdateUser(UserDetailViewModel user);
     }
 }

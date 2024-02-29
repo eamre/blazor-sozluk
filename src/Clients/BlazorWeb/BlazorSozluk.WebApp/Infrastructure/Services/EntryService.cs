@@ -33,9 +33,9 @@ namespace BlazorSozluk.WebApp.Infrastructure.Services
             return result;
         }
 
-        public async Task<PagedViewModel<GetUserEntriesDetailViewModel>> GetProfilePageEntries(int page, int pageSize, string userName = null)
+        public async Task<PagedViewModel<GetEntryDetailViewModel>> GetProfilePageEntries(int page, int pageSize, string userName = null)
         {
-            var result = await _httpClient.GetFromJsonAsync<PagedViewModel<GetUserEntriesDetailViewModel>>($"/api/entry/UserEntries?userName={userName}&page={page}&pageSize={pageSize}");
+            var result = await _httpClient.GetFromJsonAsync<PagedViewModel<GetEntryDetailViewModel>>($"/api/entry/UserEntries?userName={userName}&page={page}&pageSize={pageSize}");
             return result;
         }
 

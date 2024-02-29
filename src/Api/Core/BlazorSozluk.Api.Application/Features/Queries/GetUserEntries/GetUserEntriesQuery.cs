@@ -13,7 +13,7 @@ namespace BlazorSozluk.Api.Application.Features.Queries.GetUserEntries
     {
         public Guid? UserId{ get; set; }
         public string UserName{ get; set; }
-        public GetUserEntriesQuery(Guid? userId, string userName, int page, int pageSize) : base(page, pageSize)
+        public GetUserEntriesQuery(Guid? userId, int page, int pageSize, string userName = null) : base(page, pageSize)
         {
             UserId = userId;
             UserName = userName;

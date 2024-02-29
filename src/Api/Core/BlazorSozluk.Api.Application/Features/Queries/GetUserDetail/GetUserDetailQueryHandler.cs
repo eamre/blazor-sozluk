@@ -24,8 +24,8 @@ namespace BlazorSozluk.Api.Application.Features.Queries.GetUserDetail
 
         public async Task<UserDetailViewModel> Handle(GetUserDetailQuery request, CancellationToken cancellationToken)
         {
-            if (request.UserId.Equals(Guid.Empty) || string.IsNullOrWhiteSpace(request.UserName))
-                throw new ArgumentException("Either 'userId' or 'userName' must be provided.");
+        //    if (request.UserId.Equals(Guid.Empty) || string.IsNullOrWhiteSpace(request.UserName))
+        //        throw new ArgumentException("Either 'userId' or 'userName' must be provided.");
 
             User dbUser = null;
 
