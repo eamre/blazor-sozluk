@@ -52,7 +52,7 @@ namespace BlazorSozluk.WebApp.Infrastructure.Services
                 if (httpResponse.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
                     responseStr = await httpResponse.Content.ReadAsStringAsync();
-                    var validation = JsonSerializer.Deserialize<ValidationResponseModel>(responseStr);
+                    var validation = JsonSerializer.Deserialize<ValidationResponseModel>(responseStr, defaultJsonOpt);
                     responseStr = validation.FlattenErrors;
                     throw new DatabaseValidationException(responseStr);
                 }
@@ -88,5 +88,10 @@ namespace BlazorSozluk.WebApp.Infrastructure.Services
             ((AuthStateProvider)authenticationStateProvider).NotifyUserLogout();
             httpClient.DefaultRequestHeaders.Authorization = null;
         }
+
+        private JsonSerializerOptions defaultJsonOpt => new JsonSerializerOptions()
+        {
+            PropertyNameCaseInsensitive = true
+        };
     }
 }

@@ -63,9 +63,9 @@ namespace BlazorSozluk.Api.WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("Confirm")]
-        public async Task<IActionResult> ConfirmEmail(Guid id)
+        public async Task<IActionResult> ConfirmEmail([FromQuery] Guid id)
         {
             var result = await _mediator.Send(new ConfirmEmailCommand() { ConfirmationId = id });
             return Ok(result);
